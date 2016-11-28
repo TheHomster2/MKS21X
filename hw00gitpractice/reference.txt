@@ -1,4 +1,13 @@
-git init
-git clone
-mkdir
-git status
+git init- creates a new Git repo. It creates a .git subdirectory 
+
+git clone <SSH / HTTPS key>- copies an existing Git repo. Creates a remote connection called origin pointing back to the original repo
+
+mkdir- makes a new directory within a file/ folder
+
+git add <file>- includes in what will be committed. It takes a path name for either a file or a directory; if it’s a directory, the command adds all the files in the directory recursively
+
+git status- displays paths that have differences btw the index file and current HEAD commit
+
+git commit -m “” - locks in a version of your work with a message 
+
+git push- sync changes to Github
