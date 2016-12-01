@@ -34,6 +34,6 @@ public class Book{
 	}
 
 	public String toString(){
-		return "This book is " + title + "written by " + author + "and the book's ISBN is: " + isbn
+		return "This book is " + title + "written by " + author + "and the book's ISBN is: " + isbn;
 	}
 }
