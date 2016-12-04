@@ -11,12 +11,12 @@ abstract class LibraryBook extends Book implements Comparable<LibraryBook>{
 	}
 
 	public String setcallNum(){
-		return callNumber = number;
+		callNumber = number;
 	}
 
-	abstract void checkout(String patron, String due);
-	abstract void returned();
-	abstract String circulationStatus();
+	public abstract void checkout(String patron, String due);
+	public abstract void returned();
+	public abstract String circulationStatus();
 /*
 	public String compareTo(LibraryBook num){
 		if (num implements LibraryBook){
