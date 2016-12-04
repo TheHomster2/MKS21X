@@ -21,4 +21,12 @@ public class ReferenceBook extends LibraryBook{
 	public void returned(){
 		System.out.println("Reference book could not have been checked out -- return impossible");
 	}
+
+	public String circulationStatus(){
+		return "Non-circulating reference book";
+	}
+
+	public String toString(){
+		super.toString() + " This book is found at: " + collection;
+	}
 }
