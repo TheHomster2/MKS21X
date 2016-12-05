@@ -9,10 +9,18 @@ public class SuperArrayIterator implements Iterator<String>{
 		this.array = array;
 		startpoint = 0;
 	}
-
-	public boolean hasNext(){}
-
-	public String next(){}
+//Returns true if the iteration has more elements.
+	public boolean hasNext(){
+		return start < array.size();
+	}
+//Returns the next element in the iteration.
+	public String next(){
+		if (hasNext()){
+			startpoint += 1;
+			return array.get(startpoint - 1);
+		}
+	}
+//Removes from the underlying collection the last element returned by this iterator (optional operation).
 
 	public void remove(){}
 }
