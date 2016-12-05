@@ -23,5 +23,7 @@ public class SuperArrayIterator implements Iterator<String>{
 	}
 //Removes from the underlying collection the last element returned by this iterator (optional operation).
 
-	public void remove(){}
+	public void remove(){
+	throw NoSuchElementException;\
+ }
 }
