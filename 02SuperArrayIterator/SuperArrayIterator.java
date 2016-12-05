@@ -12,7 +12,7 @@ public class SuperArrayIterator implements Iterator<String>{
 	}
 //Returns true if the iteration has more elements.
 	public boolean hasNext(){
-		return start < array.size();
+		return startpoint < array.size();
 	}
 //Returns the next element in the iteration.
 	public String next(){
