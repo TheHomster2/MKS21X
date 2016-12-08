@@ -15,15 +15,16 @@ public class Barcode implements Comparable<Barcode>{
 
 // postcondition: Creates a copy of a bar code. In Java a clone method builds a second copy of an object and returns it. 
   public Barcode clone(){
-	Barcode clone = new String _zip;
+	Barcode clone = new Barcode (zip);
 	return clone;
 }
 
 
 // postcondition: computes and returns the check sum for _zip
+// loop through the string and take the ASCII value to determine the sum... We'd use charAt or substring 
   private int checkSum(){
-	int sum = Integer.parseint(zip[0]) + Integer.parseint(zip[1]) + Integer.parseint(zip[2]) + Integer.parseint(zip[3]) + Integer.parseint(zip[4])	
-}
+	for (int index = 0; index < zip; index++){
+		
 
 //postcondition: format zip + check digit + Barcode 
 //ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|"      
