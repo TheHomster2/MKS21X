@@ -1,3 +1,5 @@
+import java.util.*;
+
 public class Barcode implements Comparable<Barcode>{
 // instance variables
    private String _zip;
@@ -8,9 +10,9 @@ public class Barcode implements Comparable<Barcode>{
 //postcondition: throws a runtime exception zip is not the correct length
 //               or zip contains a non digit
 //               _zip and _checkDigit are initialized.
-  public Barcode(String zip) {
+  public Barcode(java.lang.String zip) {
 	if (zip.length() != 5 || zip.isdigit() != true){ //checks whether the zip string is a digit or not 			
-	throw new RunTimeException();
+	throw new java.lang.IllegalArgumentException();
 	}
 }
 
@@ -44,12 +46,16 @@ public class Barcode implements Comparable<Barcode>{
 	
 }
 
-
 // postcondition: compares the zip + checkdigit, in numerical order. 
 // Don't compare the barcode with the string 
   public int compareTo(Barcode other){}
     
 }
+
+	public static java.lang.String toCode(java.lang.String zip){}
+
+	public static java.lang.String toZip(java.lang.String code){}
+
 
 /*What data should a Barcode object store? The Barcode should store the String zipcode
 What methods does a Barcode need to be minimally useful? (Public Methods) Constructor that takes the zipcode, toString, compareTo
