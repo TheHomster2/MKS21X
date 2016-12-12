@@ -4,16 +4,21 @@ public class Barcode implements Comparable<Barcode>{
 // instance variables
    private String _zip;
    private int _checkDigit;
-	private static String[] bars = { 
+	private static String[] bars = {":::||","::|:|","::||:",":|::|",":|:|:",":||::","|:::|","|::|:","|:|::","||:::"};
 // constructors
 //precondtion: _zip.length() = 5 and zip contains only digits.
 //postcondition: throws a runtime exception zip is not the correct length
 //               or zip contains a non digit
 //               _zip and _checkDigit are initialized.
   public Barcode(java.lang.String zip) {
-	if (zip.length() != 5 || zip.isdigit() != true){ //checks whether the zip string is a digit or not 			
-	throw new java.lang.IllegalArgumentException();
+	if (zip.length() != 5){ 		
+	throw new IllegalArgumentException("Inappropriate zip length!");
 	}
+	else{
+		_zip = zip;
+	}
+	_checkDigit = checkSum();
+
 }
 
 // postcondition: Creates a copy of a bar code. In Java a clone method builds a second copy of an object and returns it. 
@@ -28,14 +33,14 @@ public class Barcode implements Comparable<Barcode>{
 // checkSum() is used to indicate each object's unique sum
   private int checkSum(){
 	int sum = 0;
-	for (int index = 0; index < zip; index++){
+	for (int index = 0; index < _zip.length(); index++){
 	if (zip.charAt(index) < 58 && zip.charAt(index) > 47){
 	sum = sum + zip.charAt(index) - 48;
 }
-	else {throw new IllegalArgumentException()}
-} 
-
-	return sum;
+}
+	int checkDigit = sum % 10;
+	_checkDigit = checkDigit;
+	return checkDigit;
 	
 	
 		
@@ -48,8 +53,9 @@ public class Barcode implements Comparable<Barcode>{
 
 // postcondition: compares the zip + checkdigit, in numerical order. 
 // Don't compare the barcode with the string 
-  public int compareTo(Barcode other){}
-    
+//Compares the barcode with the numerical order. In this case it takes the first five digits excluding the check digit
+  public int compareTo(Barcode other){
+    return (toString().substring(0,6).compareTo(other.toString().substring(0,6)))
 }
 
 	public static java.lang.String toCode(java.lang.String zip){}
