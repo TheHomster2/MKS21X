@@ -2,9 +2,10 @@ import java.util.*;
 
 public class Barcode implements Comparable<Barcode>{
 // instance variables
+// bars goes in order of the what each digit represents from 0-9
    private String _zip;
    private int _checkDigit;
-	private static String[] bars = {":::||","::|:|","::||:",":|::|",":|:|:",":||::","|:::|","|::|:","|:|::","||:::"};
+	private static String[] bars = {"||:::",":::||","::|:|","::||:",":|::|",":|:|:",":||::","|:::|","|::|:","|:|::"}; 
 // constructors
 //precondtion: _zip.length() = 5 and zip contains only digits.
 //postcondition: throws a runtime exception zip is not the correct length
@@ -34,8 +35,8 @@ public class Barcode implements Comparable<Barcode>{
   private int checkSum(){
 	int sum = 0;
 	for (int index = 0; index < _zip.length(); index++){
-	if (zip.charAt(index) < 58 && zip.charAt(index) > 47){
-	sum = sum + zip.charAt(index) - 48;
+	if (_zip.charAt(index) < 58 && _zip.charAt(index) > 47){
+	sum = sum + _zip.charAt(index) - 48;
 }
 }
 	int checkDigit = sum % 10;
@@ -46,9 +47,20 @@ public class Barcode implements Comparable<Barcode>{
 		
 
 //postcondition: format zip + check digit + Barcode 
-//ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|"      
+//ex. "084518  |||:::|::|::|::|:|:|::::|||::|:|"   
+//add the two bars to the barcode   
   public String toString(){
-	
+	String result = "";
+	result += _zip;
+	result += _checkDigit + "  ";
+	for (int digitindex = 0; digitindex < _zip.length(); digitindex++){
+		for (int index = 0; index < bars.length; index++){
+			if (index == Integer.parseInt(_zip.substring(digitindex, digitindex + 1))){
+				result += "|" + bars[index] + "|";
+			}
+		}
+	}
+	return result;
 }
 
 // postcondition: compares the zip + checkdigit, in numerical order. 
@@ -58,9 +70,27 @@ public class Barcode implements Comparable<Barcode>{
     return (toString().substring(0,6).compareTo(other.toString().substring(0,6)))
 }
 
-	public static java.lang.String toCode(java.lang.String zip){}
+	public static String toCode(String zip){
+		String result = "|";
+		if (zip.length() != 5 || (zip.contains("[0-9]+")) == false){
+			throw new IllegalArgumentException("Inappropriate zip length!");
+		}
+		else{
+			for(int digitindex = 0; digitindex < zip.length; digitindex++){
+				for (int index = 0; index < bars.length; index++){
+					if (index == Integer.parseInt(zip.substring(digitindex, digitindex + 1))){
+						result += bars[index] + "|";
+			}
+		}
+	}
+	return result;
+}
+}
 
-	public static java.lang.String toZip(java.lang.String code){}
+	public static String toZip(String code){
+		String result = "";
+
+	}
 
 
 /*What data should a Barcode object store? The Barcode should store the String zipcode
