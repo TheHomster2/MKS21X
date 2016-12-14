@@ -19,12 +19,15 @@ public class Sorts{
   *@param data  the elements to be sorted.
   */
   public static void selectionSort(int[] data){
-    int minimum = data[0];
-    int tracker = data[0];
-    for (int index = 1; index < data.length - 1; index++){
-        if (data[index] < minimum){
-            minimum = data[index];
-            data[index] = tracker;   
+    int minimum = data[index];
+    for (int index = 0; index < data.length; index++){
+       for (int tracker = index + 1; tracker < data.length; tracker++){
+	if (data[tracker] < minimum){
+            minimum = data[tracker];
+            }
+}
+	if (minimum < data [tracker]){
+		  
            
            
            
