@@ -42,11 +42,13 @@ public class Sorts{
 
  public static void bubbleSort(int[] data){
 	for (int index = 0; index < data.length; index++){
+		for(int index = 0; index < 
 		if (data[index] > data[index + 1]){
 			int temp = data[index];
 			data [index] = data[index + 1];
 			data [index + 1] = temp;			
-
+}
+}}
 
 /*
 endtime = System.currentTimeMillis();
