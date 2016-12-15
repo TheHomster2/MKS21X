@@ -11,7 +11,7 @@ public class Sorts{
   /**EDIT THIS METHOD TO MATCH YOUR NAME
   */
   public static String name(){
-    return "01.Hom.Anthony";
+    return "09.Hom.Anthony";
   }
 
   /**Selection sort of an int array.
@@ -21,17 +21,21 @@ public class Sorts{
   public static void selectionSort(int[] data){
     int minimum = data[index];
     for (int index = 0; index < data.length; index++){
+        minimum = data[index];
+        minimumIndex = index;
        for (int tracker = index + 1; tracker < data.length; tracker++){
-	if (data[tracker] < minimum){
-            minimum = data[tracker];
+	       if (data[tracker] < minimum){
+          minimum = data[tracker];
+          minimumIndex = tracker;
             }
-}
-	if (minimum < data [tracker]){
-		  
-           
-           
-           
-}
- }
+          }
+        }
+      }
 
-}
+
+  public static void insertionSort(int[] data){
+    for (int index = 1; index < data.length; index++){
+        int temp = data[index];
+        
+    }
+  }
