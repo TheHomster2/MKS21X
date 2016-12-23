@@ -48,9 +48,19 @@ public class Sorts{
 			int temp = data[index2 - 1];
 			data [index - 1] = data[index2];
 			data [index] = temp;			
+      }
+    }
+  }
 }
-}}
 
+
+ public static String array(int[] data){
+  String result = "{";
+  for (int index = 0; index < data.length; index++){
+    result += data[index] + ", ";
+  }
+  return result.substring(0, result.length() - 1) + "}";
+ }
 /*
 endtime = System.currentTimeMillis();
 
