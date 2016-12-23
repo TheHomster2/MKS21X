@@ -44,12 +44,15 @@ public class Sorts{
   }
 
  public static void bubbleSort(int[] data){
-	for (int index = 0; index < data.length; index++){
-		for(int index2 = 1; index2 < (data.length - index); index2++){
+  boolean swapped; 
+	for (int index = data.length; index > 0 && swapped; index--){
+    swapped = false;
+		for(int index2 = 1; index2 < (data.length); index2++){
 		if (data[index2 - 1] > data[index2]){
 			int temp = data[index2 - 1];
-			data [index - 1] = data[index2];
-			data [index] = temp;			
+			data [index2 - 1] = data[index2];
+			data [index2] = temp;	
+      swapped = true;
       }
     }
   }
