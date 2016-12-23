@@ -19,10 +19,9 @@ public class Sorts{
   *@param data  the elements to be sorted.
   */
   public static void selectionSort(int[] data){
-    int minimum = data[index];
     for (int index = 0; index < data.length; index++){
-        minimum = data[index];
-        minimumIndex = index;
+        int minimum = data[index];
+        int minimumIndex = index;
        for (int tracker = index + 1; tracker < data.length; tracker++){
 	       if (data[tracker] < minimum){
           minimum = data[tracker];
@@ -36,7 +35,8 @@ public class Sorts{
   public static void insertionSort(int[] data){
     for (int index = 1; index < data.length; index++){
         int temp = data[index];
-	      for (int other = index; other >= 0 && temp < data[other -1]; other--){
+        int other;
+	      for (other = index; other >= 0 && temp < data[other -1]; other--){
           data[other] = data[other - 1];
         }
         data[other] = temp;
@@ -44,7 +44,7 @@ public class Sorts{
   }
 
  public static void bubbleSort(int[] data){
-  boolean swapped; 
+  boolean swapped = true; 
 	for (int index = data.length; index > 0 && swapped; index--){
     swapped = false;
 		for(int index2 = 1; index2 < (data.length); index2++){
@@ -66,6 +66,7 @@ public class Sorts{
   }
   return result.substring(0, result.length() - 1) + "}";
  }
+}
 /*
 endtime = System.currentTimeMillis();
-
+*/
